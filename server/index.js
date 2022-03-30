@@ -5,6 +5,7 @@ import cors from "cors";
 import userRouter from "./routes/user.js";
 import dotenv from "dotenv";
 const app = express();
+const mongoDBURL="mongodb+srv://admin:admin@registartion.9b5sl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 mongoose
-  .connect(process.env.CONNECTION_URL || mongodb+srv://admin:admin@registartion.9b5sl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority, {
+  .connect(mongoDBURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
